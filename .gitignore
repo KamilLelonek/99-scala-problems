@@ -1,0 +1,4 @@
+# Build artifacts
+target/
+project/project
+project/target
