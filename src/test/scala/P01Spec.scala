@@ -1,4 +1,3 @@
-import collection.mutable.Stack
 import org.scalatest._
 
 class P01Spec extends FlatSpec with Matchers {
