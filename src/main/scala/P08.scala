@@ -9,5 +9,8 @@
  */
 
 object P08 {
-   def compress[T](list: List[T]): List[T] = list distinct
- }
+  def compress[T](list: List[T]): List[T] = list match {
+    case h :: tail => h :: compress(tail.dropWhile(_ == h))
+    case _         => Nil
+  }
+}
