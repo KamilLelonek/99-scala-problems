@@ -8,13 +8,11 @@
 */
 
 object P09 {
-  def gather[T](list: List[T]): List[T] = list match {
-    case h :: tail => h :: gather(tail.takeWhile(_ == h))
-    case _         => Nil
-  }
-
   def pack[T](list: List[T]): List[List[T]] = list match {
-    case h :: tail => gather(list) :: pack(tail.dropWhile(_ == h))
-    case _         => Nil
+    case h :: _ => {
+      val span = list.span(_ == h)
+      span._1 :: pack(span._2)
+    }
+    case Nil => Nil
   }
 }
